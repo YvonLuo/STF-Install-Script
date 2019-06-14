@@ -20,7 +20,7 @@ apt-get update \
 || OwnError "Unable to execute apt-get update command, exit status = " $?
 
 echo "Installing required packages, Please wait..."
-apt-get -y install wget curl git rethinkdb android-tools-adb python autoconf automake libtool build-essential ninja-build libzmq3-dev libprotobuf-dev git graphicsmagick \
+apt-get -y install wget curl git rethinkdb android-tools-adb python autoconf automake libtool build-essential ninja-build libzmq3-dev libprotobuf-dev git graphicsmagick yasm \
 || OwnError "Unable to install required packages, exit status = " $?
 
 echo "Donwloading Node.js, Please Wait..."
@@ -64,6 +64,9 @@ cd /opt \
 && make \
 && make install \
 || OwnError "Unable to Setup Protocol Buffers, exit status = " $?
+
+echo "Setup Yasm, Please wait..."
+
 
 echo "Installing STF, Please wait..."
 npm install -g stf --unsafe-perm --allow-root \
